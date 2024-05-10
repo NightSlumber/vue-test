@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>localStorage</h2>
+    <button onclick="savaData()">点我保存一个数据</button>
+    <button onclick="readData()">点我读取一个数据</button>
+    <button onclick="deleteData()">点我删除一个数据</button>
+    
+    <script>
+        function savaData() {
+            let p = {
+                name: '张三',
+                age: 18
+            }
+            localStorage.setItem('name', 'javascript')
+            localStorage.setItem('number', 3.14)
+            localStorage.setItem('person', JSON.stringify(p))
+        }
+
+        function readData() {
+            console.log(localStorage.getItem('name'))
+            console.log(localStorage.getItem('number'))
+
+            const result = localStorage.getItem('person')
+            console.log(JSON.parse(result))
+        }
+
+        function deleteData() {
+            
+        }
+    </script>
+</body>
+</html>

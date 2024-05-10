@@ -3,7 +3,13 @@
         <!--
             这边使用了 MyItem 这个组件，MyItem 中 data 配置项中的数据是写死的，而在使用这个组件上自己写属性，配置项写props，那么就可以把动态的数据传过去了。
         -->
-        <MyItem v-for="todoObj in todos" :key="todoObj.id" :todo="todoObj"/>
+        <MyItem
+            v-for="todoObj in todos"
+            :key="todoObj.id"
+            :todo="todoObj"
+            :checkTodo="checkTodo"
+            :deleteTodo="deleteTodo"
+        />
     </ul>
 </template>
 
@@ -15,15 +21,7 @@
         components: {
             MyItem
         },
-        data() {
-            return {
-                todos: [
-                    { id: '001', title: '吃饭', done: true },
-                    { id: '002', title: '喝饮料', done: false },
-                    { id: '003', title: '睡觉', done: true },
-                ]
-            }
-        }
+        props: ['todos', 'checkTodo', 'deleteTodo']
     }
 </script>
 
